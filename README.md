@@ -110,13 +110,14 @@ For details see the [our paper](https://ijcai-preprints.s3.us-west-1.amazonaws.c
 ### Download Pre-trained SDXL files
 Download the [SDXL](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/tree/main).
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 ## 💻  Run Demo    
 
 ### GPU Memory
 All experiments are conducted on a single RTX 3090 GPU. About 17 GB.
 
 ### Run
-We provide 
+We provide two scripts to run our method.
 ```sh
 cd ./diffusers_test
 python stable_diffusion_xl_test.py \
@@ -142,6 +143,7 @@ python stable_diffusion_xl_test.py \
 ```
 >❗You can manually adjust the *phase_fusion_steps* parameter, if you encounter bad results
 
+or 
 ```sh
 cd ./diffusers_test
 bash run.sh
