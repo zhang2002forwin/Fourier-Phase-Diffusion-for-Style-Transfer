@@ -1,0 +1,20 @@
+python stable_diffusion_xl_test.py \
+    --refimgpath ./ContentImages/final_img/yuantu/3.png \
+    --model_name /media/ilab/Innocent/zsy/stable-diffusion-xl-base-1.0  \
+    --unet_name  /media/ilab/Innocent/zsy/stable-diffusion-xl-base-1.0/unet/ \
+    --prompt_json  ./style_prompt1.json  \
+    --num_images_per_prompt  1 \
+    --output_dir ./output0 \
+    --sampler  "DDIM"  \
+    --step  30  \
+    --cfg  7.5 \
+    --height 1024 \
+    --width 1024  \
+    --seed 123456789  \
+    --n 160  \
+    --b 1.8  \
+    --s 1   \
+    --t 20 \
+    --use_cnt_mid_feat_in_unet \
+    --is_adain_during_replace_phase \
+    --phase_fusion_steps 2 5 8 \
