@@ -98,6 +98,7 @@ For details see the [our paper](https://ijcai-preprints.s3.us-west-1.amazonaws.c
   ```sh
   conda create -n PhaseDiff python==3.8.18
   conda activate PhaseDiff
+  pip install torch
 
   cd diffusers
   pip install -e .
