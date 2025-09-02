@@ -1,0 +1,12 @@
+./Generated_img
+./output
+*.sh
+*.py
+*.idea
+*.vscode
+./diffusers_test/ContentImages
+./diffusers_test/output0
+./diffusers_test/centercrop.py
+./our_results
+Generator.py
+./imgs
