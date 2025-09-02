@@ -814,6 +814,8 @@ class StableDiffusionXLPipeline(DiffusionPipeline, FromSingleFileMixin):
         adain_with_patches = False,
         use_cnt_mid_feat_in_unet = False,
         is_freestyle = False,
+        fusion_alpha = 0.5,
+        fusion_beta = 0.7 ,
     ):
         r"""
         Function invoked when calling the pipeline for generation.
@@ -1200,6 +1202,8 @@ class StableDiffusionXLPipeline(DiffusionPipeline, FromSingleFileMixin):
                                                       cross_attention_kwargs=cross_attention_kwargs,
                                                       added_cond_kwargs=added_cond_kwargs,
                                                       classifier_guidance = guidance_scale ,
+                                                      fusion_alpha = fusion_alpha,
+                                                      fusion_beta = fusion_beta,
                                                       )[0]
 
                 # call the callback, if provided
@@ -1266,6 +1270,8 @@ class StableDiffusionXLPipeline(DiffusionPipeline, FromSingleFileMixin):
             added_cond_kwargs=None,
             classifier_guidance = None,
             return_x0pred = False,
+            fusion_alpha = 0.5,
+            fusion_beta = 0.7,
     ):
 
         if replace_phase_after_timestep:
@@ -1322,12 +1328,9 @@ class StableDiffusionXLPipeline(DiffusionPipeline, FromSingleFileMixin):
 
             content_m = torch.abs(content_frequency)
             content_p = torch.angle(content_frequency)
-            # alpha = 0.8
-            # x0_frequency = x0_frequency * alpha + content_frequency * (1 - alpha)
             x0_m = torch.abs(x0_frequency)
-
+            # x0_m = x0_m * 0.5 + content_m * 0.5
             latents_freq = (x0_m)  * torch.exp(1j*content_p)  # amplitude  * torch.exp(1j*phase)
-            # latents_freq = latents_freq * 1.1
             latents = torch.abs(torch.fft.ifft2(latents_freq,dim=(2,3)).real).to(dtype)
 
             latents = latents * (x0_max-x0_min) + x0_min  #  [b,c,h,w]
@@ -1349,7 +1352,7 @@ class StableDiffusionXLPipeline(DiffusionPipeline, FromSingleFileMixin):
             pred_original_sample = self.img_latent_via_vaeEncoder(latents.to(device=self.device)) # x0_hat
 
             pred_original_sample = pred_original_sample.detach()
-            pred_original_sample = pred_original_sample * 0.5 + 0.7 * old_pred_original_sample
+            pred_original_sample = pred_original_sample * fusion_alpha + fusion_beta * old_pred_original_sample # alpha & beta 
 
         pred_original_sample = pred_original_sample.to(dtype)
         if x0_img_vis :

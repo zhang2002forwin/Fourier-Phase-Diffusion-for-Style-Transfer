@@ -18,3 +18,5 @@ python stable_diffusion_xl_test.py \
     --use_cnt_mid_feat_in_unet \
     --is_adain_during_replace_phase \
     --phase_fusion_steps 2 5 8 \
+    --fusion_alpha 0.5 \
+    --fusion_beta 0.7 \

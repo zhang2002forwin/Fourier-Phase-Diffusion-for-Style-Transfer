@@ -191,6 +191,18 @@ def parse_args():
         help="A list of phase fuision steps"
     )
     parser.add_argument(
+        "--fusion_alpha",
+        default=0.5,
+        type=float,
+        help="batch size used in generating images",
+    )
+    parser.add_argument(
+        "--fusion_beta",
+        default=0.7,
+        type=float,
+        help="batch size used in generating images",
+    )
+    parser.add_argument(
         "--refimgpath",
         type=str,
         default="./ContentImages/imgs0", 
@@ -348,10 +360,11 @@ def test(args):
                     styleimgpath=args.styleimgpath,
                     x0_img_vis = False ,        # visualize x0,t 
                     ##  key parameter of phase diffusion 
-                    replace_phase_after_timestep = args.phase_fusion_steps, #   2, 5, 8
+                    replace_phase_after_timestep = args.phase_fusion_steps, # 2, 5, 8
                     use_cnt_mid_feat_in_unet = args.use_cnt_mid_feat_in_unet,
                     is_adain_during_replace_phase = args.is_adain_during_replace_phase,
-
+                    fusion_alpha = args.fusion_alpha,
+                    fusion_beta = args.fusion_beta,
                 )
 
             images = outputs.images
