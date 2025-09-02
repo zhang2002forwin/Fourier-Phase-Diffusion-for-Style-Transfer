@@ -115,7 +115,7 @@ Download the [SDXL](https://huggingface.co/stabilityai/stable-diffusion-xl-base-
 ## 💻  Run Demo    
 
 ### GPU Memory
-All experiments are conducted on a single RTX 3090 GPU. About 17 GB.
+All experiments are conducted on a single RTX 3090 GPU. About 17 GB. 
 
 ### Run
 We provide two scripts to run our method.
@@ -141,8 +141,10 @@ python stable_diffusion_xl_test.py \
   --use_cnt_mid_feat_in_unet \
   --is_adain_during_replace_phase \
   --phase_fusion_steps 2 5 8 \
+  --fusion_alpha 0.5 \
+  --fusion_beta 0.7 \
 ```
->❗You can manually adjust the *phase_fusion_steps* parameter, if you encounter bad results
+>❗You can manually adjust the *phase_fusion_steps*, *fusion_alpha* and *fusion_beta* parameters, if you encounter bad results
 
 or 
 ```sh
@@ -163,6 +165,8 @@ bash run.sh
 --use_cnt_mid_feat_in_unet        use Semantic injection 
 --is_adain_during_replace_phase   use AdaIN in Phase Fusion module
 --phase_fusion_steps 2 5 8        Activation of Phase Fusion module
+--fusion_alpha                    Residual coefficient    
+--fusion_beta                     Residual coefficient
 ```
 
 #### Parameter Recommendation
@@ -178,7 +182,7 @@ Adjust the parameter n appropriately when there is noise in the stylized image.
 
 #### ⭐️⭐️⭐️ Phase fusion module in Diffusion
 
-When the content is not well preserved or style artifacts appear, you can manually adjust the ==*phase_fusion_steps*== parameter.
+When the content is not well preserved or style artifacts appear, you can manually adjust the *phase_fusion_steps* parameter and *fusion_alpha/fusion_beta* parameters.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
