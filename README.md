@@ -170,23 +170,21 @@ bash run.sh
 ```
 
 #### Parameter Recommendation
-Content images with higher quality can achieve better stylization results.
+Parameter of [Freeu](https://github.com/ChenyangSi/FreeU)
 
-We recommend setting the parameters as: **n=160, b=2.5, s=1**.
+1. We recommend setting the parameters as: **n=160, b=2.5, s=1**.
 
-When the expression of style information is ambiguous, please reduce b (increase s).
+2. When the expression of style information is ambiguous, please reduce b (increase s).
 
-When the expression of content information is unclear, please increase b (decrease s).
-
-Adjust the parameter n appropriately when there is noise in the stylized image.
+3. When the expression of content information is unclear, please increase b (decrease s).
 
 #### ⭐️⭐️⭐️ Phase fusion module in Diffusion
 
-When the content is not well preserved or style artifacts appear, you can manually adjust the *phase_fusion_steps* parameter and *fusion_alpha/fusion_beta* parameters.
+When the content is not well preserved or style artifacts appear, you can manually adjust the *phase_fusion_steps* parameter and *fusion_alpha / fusion_beta* parameters.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-###  📑 Citation
+##  📑 Citation
 ```sh
 Need to update, please wait.
 ```
