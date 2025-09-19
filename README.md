@@ -81,7 +81,7 @@
 
 <!-- ABOUT THE PROJECT -->
 # Training-free Fourier Phase Diffusion for Style Transfer 
-For details see the [our paper](https://ijcai-preprints.s3.us-west-1.amazonaws.com/2025/2173.pdf) 
+For details see the [Our Paper](https://doi.org/10.24963/ijcai.2025/266) 
 
 ![teaser](./markdown_img/pipeline.png)
 ## Abstract
@@ -186,7 +186,21 @@ When the content is not well preserved or style artifacts appear, you can manual
 
 ##  📑 Citation
 ```sh
-Need to update, please wait.
+@inproceedings{ ijcai2025p266,
+  title     = {Training-free Fourier Phase Diffusion for Style Transfer},
+  author    = {Zhang, Siyuan and Ma, Wei and Liu, Libin and Li, Zheng and Zha, Hongbin},
+  booktitle = {Proceedings of the Thirty-Fourth International Joint Conference on
+               Artificial Intelligence, {IJCAI-25}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  editor    = {James Kwok},
+  pages     = {2386--2394},
+  year      = {2025},
+  month     = {8},
+  note      = {Main Track},
+  doi       = {10.24963/ijcai.2025/266},
+  url       = {https://doi.org/10.24963/ijcai.2025/266},
+}
+
 ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
