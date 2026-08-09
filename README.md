@@ -1,3 +1,5 @@
+
+
 <div id="top"></div>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -123,8 +125,8 @@ We provide two scripts to run our method.
 cd ./diffusers_test
 python stable_diffusion_xl_test.py \
   --refimgpath ./ContentImages/final_img/yuantu/3.png \
-  --model_name <SDXL folder> \# PhaseDiffusion/stable-diffusion-xl-base-1.0
-  --unet_name  <Unet subfolder in SDXL folder> \# PhaseDiffusion/stable-diffusion-xl-base-1.0/unet
+  --model_name <SDXL folder> \# stabilityai/stable-diffusion-xl-base-1.0
+  --unet_name  <Unet subfolder in SDXL folder> \# stabilityai/stable-diffusion-xl-base-1.0/unet
   --prompt_json  ./style_prompt1.json  \#style text description
   --num_images_per_prompt  1 \
   --output_dir ./output0 \
